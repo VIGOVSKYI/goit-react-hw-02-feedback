@@ -12,7 +12,7 @@ state = {
     bad: 0,
   };
 
-  handleChange = name => {
+  onLeaveFeedback = (name) => {
     this.setState(prevState => ({
       [name]: prevState[name] + 1,
     }));
@@ -38,7 +38,7 @@ state = {
     return (
       <div className={style.wrapper}>
         <Section title="Please leave feedback">
-          <FeedbackOptions onClick={this.handleChange} />
+          <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.onLeaveFeedback} />
         </Section>
         {this.countTotalFeedback() > 0 ? (
           <Section title="Statistics">
